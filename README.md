@@ -12,7 +12,7 @@ Project dibangun diatas tech stack
 - Prisma.js
 
 ## Kontribusi
-<img src="./assets/img/kontribusi.webp">
+<img src="./assets/img/kontributor.webp">
 ### YUK KONTRIBUSI 
 
 Untuk member organisasi
