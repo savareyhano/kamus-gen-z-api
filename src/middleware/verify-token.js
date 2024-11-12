@@ -17,6 +17,6 @@ export async function verifyToken(req, res, next) {
     req.user = payload
     next()
   } catch (error) {
-    res.status(401).json({ status: 'UNAUTHORIZED' })
+    res.status(401).json({ status: 'UNAUTHORIZED', message: error.message })
   }
 }
