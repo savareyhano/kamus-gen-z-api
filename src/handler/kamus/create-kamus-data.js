@@ -1,4 +1,4 @@
-import { createKamusOnDB } from "../../service/kamus.js"
+import { createKamusOnDB } from '../../service/kamus.js'
 /**
  * @param {import("express").Request} req
  * @param {import("express").Response} res
@@ -15,27 +15,27 @@ export default async function createKamus(req, res, next) {
 
     /** @type {CreateKamus} */
 
-    const { word, wordDescription } = req.body;
+    const { word, wordDescription } = req.body
 
     if (!word || !wordDescription) {
       return res.status(400).json({
-        status: "ERROR",
+        status: 'ERROR',
         data: [],
-        message: "word atau description tidak boleh kosong",
-      });
+        message: 'word atau description tidak boleh kosong',
+      })
     }
 
     const kamus = await createKamusOnDB({
       word,
-      wordDescription
+      wordDescription,
     })
 
     return res.status(201).json({
-      status: "CREATED",
+      status: 'CREATED',
       data: kamus,
-      message: "Kamus berhasil dibuat",
-    });
+      message: 'Kamus berhasil dibuat',
+    })
   } catch (error) {
-    next(error);
+    next(error)
   }
 }
