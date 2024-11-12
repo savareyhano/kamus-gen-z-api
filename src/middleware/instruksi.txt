@@ -1,0 +1,7 @@
+Buat middleware disini
+
+Adapun middleware
+1. Autentikasi dan Otorisasi
+2. Upload validasi
+3. Error handling
+4. Logging

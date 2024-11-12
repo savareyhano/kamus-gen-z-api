@@ -1,0 +1,18 @@
+Setiap response json akan selalu pada format
+{
+    status: "STATUS CODE",
+    data: ARRAY / OBJECT,
+    message: string (OPSIONAL)
+    meta: ARRAY / OBJECT (OPSIONAL)
+}
+
+mengenai STATUS CODE
+
+OK = Berhasil
+UNAUTHORIZED = User ngga punya izin, bisa jadi karna gak login, atau gak punya akses admin
+ERROR = Error yang disebabkan user
+SERVER_ERROR = Error masalah SERVER_ERROR
+CREATED = Data berhasil dibuat, cuma dipake kalau untuk membuat data baru
+SUCCESS = Data berhasil diubah, cuma dipake kalau untuk mengubah data baru
+DELETED = Data berhasil dihapus
+FAILED = Proses gagal, baik gagal dibuat, gagal diubah, atau gagal dihapus

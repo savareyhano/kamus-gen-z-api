@@ -1,0 +1,6 @@
+Bisa dibilang ini merupakan controllernya kalau di laravel atau codeigniter
+
+APA ITU PHP ?
+HOEK
+
+O iya, selalu gunakan try and catch yak, biar bisa dilempar ke error handling

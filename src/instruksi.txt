@@ -1,0 +1,6 @@
+Maaf kalau agak skill issue soal desainnya,
+tapi kira kira begini
+
+index.js -> routes/*.js -> handler/*.js -> service/*.js
+
+dipisah pisahin gini biar gampang kalau mau kolaborasi
