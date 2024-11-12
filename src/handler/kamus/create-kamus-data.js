@@ -1,5 +1,4 @@
-import { client } from "../../database.js";
-
+import { createKamusOnDB } from "../../service/kamus.js"
 /**
  * @param {import("express").Request} req
  * @param {import("express").Response} res
@@ -18,8 +17,6 @@ export default async function createKamus(req, res, next) {
 
     const { word, wordDescription } = req.body;
 
-    console.log(word, wordDescription);
-
     if (!word || !wordDescription) {
       return res.status(400).json({
         status: "ERROR",
@@ -28,12 +25,10 @@ export default async function createKamus(req, res, next) {
       });
     }
 
-    const kamus = await client.words.create({
-      data: {
-        word,
-        wordDescription,
-      },
-    });
+    const kamus = await createKamusOnDB({
+      word,
+      wordDescription
+    })
 
     return res.status(201).json({
       status: "CREATED",
