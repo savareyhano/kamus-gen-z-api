@@ -13,7 +13,7 @@ Project dibangun diatas tech stack
 
 ## Kontribusi
 <img src="./assets/img/kontributor.webp">
-### YUK KONTRIBUSI 
+**YUK KONTRIBUSI**
 
 Untuk member organisasi
 1. Clone repository ini
