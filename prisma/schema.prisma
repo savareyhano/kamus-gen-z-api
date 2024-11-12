@@ -14,25 +14,17 @@ datasource db {
 }
 
 model Words {
-  id Int @id @default(autoincrement())
-  word String @unique
-  wordDescriptions WordsDescription[]
+  id              Int    @id @default(autoincrement())
+  word            String @unique
+  wordDescription String @map("word_description")
+
   @@map("dictionaries")
 }
 
-model WordsDescription{
-  id Int @id @default(autoincrement())
-  word Words @relation(fields: [wordId], references: [id])
-  wordId Int @map("word_id")
-  description String
-
-  @@map("words_descriptions")
-}
-
-model User{
-  id Int @id @default(autoincrement())
+model User {
+  id       Int    @id @default(autoincrement())
   username String
-  email String
+  email    String
   password String
   fullname String
 

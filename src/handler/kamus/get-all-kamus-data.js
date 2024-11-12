@@ -1,8 +1,27 @@
-import { findAllKamusData } from "../../service/kamus.js"
+import { findAllKamusData, findAllKamusDataBy } from "../../service/kamus.js"
 
+/**
+ * 
+ * @param {import("express").Request} req 
+ * @param {import("express").Response} res 
+ * @param {import("express").NextFunction} next 
+ * @returns 
+ */
 export default async function getAllKamusData(req, res, next) {
     try{
-        const kamusData = await findAllKamusData()
+        /**
+         * @type {string}
+         */
+        const query = req.query.q
+
+        let kamusData
+
+        if(query){
+            kamusData = await findAllKamusDataBy(query)
+        }
+        else{
+            kamusData = await findAllKamusData()
+        }
 
         return res.json({
             status: "OK",

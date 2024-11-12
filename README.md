@@ -1,3 +1,5 @@
+<img src="./assets/img/kapibara.webp">
+
 # API Kamus Gen Z
 
 Koleksi bahasa gaul Gen Z beserta artinya.
