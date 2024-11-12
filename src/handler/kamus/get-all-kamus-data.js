@@ -9,7 +9,11 @@ import { findAllKamusData, findAllKamusDataBy } from "../../service/kamus.js"
  */
 export default async function getAllKamusData(req, res, next) {
     try{
+        /**
+         * @type {string}
+         */
         const query = req.query.q
+
         let kamusData
 
         if(query){
