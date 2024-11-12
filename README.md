@@ -11,6 +11,8 @@ Project dibangun diatas tech stack
 
 *Sorry, gw skill issue nulis readme :D
 ## Kontribusi
+<img src="./assets/img/kontributor.webp">
+**YUK KONTRIBUSI**
 
 Untuk member orgs
 1. Clone repository ini
