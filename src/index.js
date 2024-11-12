@@ -1,5 +1,7 @@
 import express from "express";
 import { kamusRoute } from "./routes/kamus.js";
+import { authRoute } from "./routes/auth.js";
+import { verifyToken } from "./middleware/verify-token.js";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -16,6 +18,14 @@ app.use(express.json());
  */
 
 app.use("/api/v1/kamus", kamusRoute);
+app.use("/api/v1/auth", authRoute);
+
+app.get("/api/v1/test-auth", verifyToken, (req, res) => {
+  return res.status(200).json({
+    status: "OK",
+    data: req.user,
+  });
+});
 
 /**
  * Buatin error handlingnya rek
