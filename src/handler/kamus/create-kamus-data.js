@@ -17,6 +17,8 @@ export default async function createKamus(req, res, next) {
 
     const { word, wordDescription } = req.body
 
+    console.log(word, wordDescription)
+
     if (!word || !wordDescription) {
       return res.status(400).json({
         status: 'ERROR',
