@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "node --watch src/index.js"
+    "dev": "node --watch src/index.js",
+    "lint": "eslint src --fix"
   },
   "keywords": [],
   "author": "",
@@ -13,12 +14,16 @@
   "description": "",
   "dependencies": {
     "@prisma/client": "^5.22.0",
-    "bcrypt": "^5.1.1",
-    "express": "^4.21.1",
-    "jose": "^5.9.6",
-    "zod": "^3.23.8"
+    "express": "^4.21.1"
   },
   "devDependencies": {
-    "prisma": "^5.22.0"
+    "@eslint/js": "^9.14.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.12.0",
+    "prettier": "^3.3.3",
+    "prisma": "^5.22.0",
+    "standard": "^17.1.2"
   }
 }

@@ -1,12 +1,10 @@
-import express from "express";
-import { kamusRoute } from "./routes/kamus.js";
-import { authRoute } from "./routes/auth.js";
-import { verifyToken } from "./middleware/verify-token.js";
+import express from 'express'
+import { kamusRoute } from './routes/kamus.js'
 
-const PORT = process.env.PORT || 3000;
-const app = express();
+const PORT = process.env.PORT || 3000
+const app = express()
 
-app.use(express.json());
+app.use(express.json())
 
 /**
  * TODO :
@@ -17,15 +15,7 @@ app.use(express.json());
  *
  */
 
-app.use("/api/v1/kamus", kamusRoute);
-app.use("/api/v1/auth", authRoute);
-
-app.get("/api/v1/test-auth", verifyToken, (req, res) => {
-  return res.status(200).json({
-    status: "OK",
-    data: req.user,
-  });
-});
+app.use('/api/v1/kamus', kamusRoute)
 
 /**
  * Buatin error handlingnya rek
@@ -33,4 +23,4 @@ app.get("/api/v1/test-auth", verifyToken, (req, res) => {
  * o iya sekalian buatin handling 404
  */
 
-app.listen(PORT, "0.0.0.0", () => console.log(`Listening ${PORT}`));
+app.listen(PORT, '0.0.0.0', () => console.log(`Listening ${PORT}`))

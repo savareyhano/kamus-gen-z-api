@@ -1,25 +1,21 @@
-<img src="./assets/img/banner.webp">
+<img src="./assets/img/kapibara.webp">
 
-# KAMUS GEN Z API
+# API Kamus Gen Z
 
-Kumpulan koleksi bahasa GAWUL Gen Z beserta artinya, jadi jangan Khawatir
-dengan yapping an para bocah tak punya sopan santun (dan kerjaan) yang tidak
-dapat dimengerti, semuanya dapat di _decode_ di sini.
+Koleksi bahasa gaul Gen Z beserta artinya.
 
 Project dibangun diatas tech stack
 - Node.js
 - Express.js
 - Prisma.js
 
+*Sorry, gw skill issue nulis readme :D
 ## Kontribusi
 <img src="./assets/img/kontributor.webp">
 **YUK KONTRIBUSI**
 
-Untuk member organisasi
+Untuk member orgs
 1. Clone repository ini
-```
-git clone git@github.com:IMPHNEN/kamus-gen-z-api.git
-```
 2. Buat branch baru dengan nama user
 3. Commit dan push
 4. Buat pull request
