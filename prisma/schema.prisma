@@ -4,15 +4,18 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+// Generator for Prisma Client
 generator client {
   provider = "prisma-client-js"
 }
 
+// Datasource configuration for SQLite database
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
+// Model for storing words and their descriptions
 model Words {
   id              Int    @id @default(autoincrement())
   word            String @unique
@@ -21,6 +24,7 @@ model Words {
   @@map("dictionaries")
 }
 
+// Model for storing user information
 model User {
   id       Int    @id @default(autoincrement())
   username String
