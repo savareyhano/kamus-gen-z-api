@@ -1,4 +1,4 @@
-<img src="./assets/img/kapibara.webp">
+<img src="./assets/img/banner.webp">
 
 # API Kamus Gen Z
 
