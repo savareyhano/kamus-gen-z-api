@@ -14,7 +14,7 @@ export default async function deleteKamus(req, res, next) {
 
     // Respond with success message
     return res.status(200).json({
-      status: 'OK',
+      status: 'DELETED',
       message: 'Kamus berhasil dihapus',
     })
   } catch (error) {
