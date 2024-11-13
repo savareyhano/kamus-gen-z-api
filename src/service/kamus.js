@@ -30,3 +30,10 @@ export async function updateKamusOnDB(id, data) {
         data: data,
     })
 }
+
+// Delete a Kamus entry from the database
+export async function deleteKamusOnDB(id) {
+    return await client.words.delete({
+        where: { id: parseInt(id, 10) },
+    })
+}
