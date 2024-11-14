@@ -23,6 +23,7 @@ export default async function getAllKamusData(req, res, next) {
     return res.json({
       status: 'OK',
       data: kamusData,
+      message: 'Data kamus berhasil diambil',
     })
   } catch (error) {
     next(error)
