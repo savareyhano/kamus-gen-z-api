@@ -68,23 +68,23 @@ import { findKamusById } from "../../service/kamus.js"
  * @returns
  */
 export default async function findKamusId(req, res, next) {
-  try {
-    const { id } = req.params
-    const kamusData = await findKamusById(id)
+ try {
+  const { id } = req.params
+  const kamusData = await findKamusById(id)
 
-    if (!kamusData) {
-      return res.status(404).json({
-        status: "GAADA",
-        message: "Data kamus tidak ditemukan",
-      })
-    }
-
-    return res.json({
-      status: "OK", 
-      data: kamusData,
-      message: "Data kamus berhasil diambil",
-    })
-  } catch (error) {
-    next(error)
+  if (!kamusData) {
+   return res.status(404).json({
+    status: "GAADA",
+    message: "Data kamus tidak ditemukan",
+   })
   }
+
+  return res.json({
+   status: "OK",
+   data: kamusData,
+   message: "Data kamus berhasil diambil",
+  })
+ } catch (error) {
+  next(error)
+ }
 }
