@@ -1,4 +1,5 @@
 import { findKamusById } from "../../service/kamus.js"
+import { Prisma } from "@prisma/client"
 
 /**
  * @swagger
@@ -74,7 +75,7 @@ export default async function findKamusId(req, res, next) {
 
   if (!kamusData) {
    return res.status(404).json({
-    status: "GAADA",
+    status: "ERROR",
     message: "Data kamus tidak ditemukan",
    })
   }
@@ -84,7 +85,13 @@ export default async function findKamusId(req, res, next) {
    data: kamusData,
    message: "Data kamus berhasil diambil",
   })
- } catch (error) {
-  next(error)
+ } catch (err) {
+  if (err instanceof Prisma.PrismaClientValidationError) {
+   return res.status(403).json({
+    status: "ERROR",
+    message: "ID harus berupa Integer atau Number",
+   })
+  }
+  next(err)
  }
 }
