@@ -2,7 +2,7 @@ import express from 'express'
 import { kamusRoute } from './routes/kamus.js'
 import { cors } from './middleware/cors.js'
 import swaggerUi from 'swagger-ui-express';
-import swaggerSpec from '../swagger.js';
+import swaggerSpec from './docs/swagger.js';
 
 
 const PORT = process.env.PORT || 3000
