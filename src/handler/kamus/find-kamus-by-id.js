@@ -60,7 +60,6 @@ import { findKamusById } from "../../service/kamus.js"
  *                   example: "An error occurred while processing the request"
  */
 
-
 /**
  *
  * @param {import("express").Request} req
@@ -70,23 +69,14 @@ import { findKamusById } from "../../service/kamus.js"
  */
 export default async function findKamusId(req, res, next) {
   try {
-    const query = req.query.q
-    const id = req.params.id
-    let kamusData
+    const { id } = req.params
+    const kamusData = await findKamusById(id)
 
-    if (id) {
-      kamusData = await findKamusById(id)
-      
-      if (!kamusData) {
-        return res.status(404).json({
-          status: "GAADA",
-          message: "Data kamus tidak ditemukan",
-        })
-      }
-    } else if (query) {
-      kamusData = await findAllKamusDataBy(query)
-    } else {
-      kamusData = await findAllKamusData()
+    if (!kamusData) {
+      return res.status(404).json({
+        status: "GAADA",
+        message: "Data kamus tidak ditemukan",
+      })
     }
 
     return res.json({
