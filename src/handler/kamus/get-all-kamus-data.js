@@ -12,6 +12,8 @@ export default async function getAllKamusData(req, res, next) {
     const query = req.query.q
     let kamusData
 
+    console.log('dssdf')
+
     if (query) {
       kamusData = await findAllKamusDataBy(query)
     } else {

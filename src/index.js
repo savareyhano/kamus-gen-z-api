@@ -1,10 +1,12 @@
 import express from 'express'
 import { kamusRoute } from './routes/kamus.js'
+import { cors } from './middleware/cors.js'
 
 const PORT = process.env.PORT || 3000
 const app = express()
 
 app.use(express.json())
+app.use(cors)
 
 /**
  * TODO :
