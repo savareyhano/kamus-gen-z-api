@@ -37,3 +37,10 @@ export async function deleteKamusOnDB(id) {
   where: { id: parseInt(id, 10) },
  })
 }
+
+// Find a Kamus by Id
+export async function findKamusById(id) {
+ return await client.words.findUnique({
+  where: { id: parseInt(id, 10) }
+ })
+}
