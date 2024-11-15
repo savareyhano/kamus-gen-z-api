@@ -1,5 +1,6 @@
-import { loginSchema } from "../../schemas/auth/loginSchema.js"
-import { login } from "../../service/auth.js"
+import { loginSchema } from '../../schemas/auth/loginSchema.js'
+import { login } from '../../service/auth.js'
+import { responseStatus } from '../../utils/response.js'
 
 /**
  * @swagger
@@ -65,15 +66,15 @@ import { login } from "../../service/auth.js"
  * @param {import("express").NextFunction} next
  */
 export default async function authenticateSession(req, res, next) {
- try {
-  const data = loginSchema.parse(req.body)
-  const token = await login(data)
+  try {
+    const data = loginSchema.parse(req.body)
+    const token = await login(data)
 
-  return res.json({
-   status: "OK",
-   data: token,
-  })
- } catch (error) {
-  next(error)
- }
+    return res.json({
+      status: responseStatus.OK,
+      data: token,
+    })
+  } catch (error) {
+    next(error)
+  }
 }

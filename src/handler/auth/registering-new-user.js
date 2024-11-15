@@ -1,5 +1,6 @@
-import { registerSchema } from "../../schemas/auth/registerSchema.js"
-import { register } from "../../service/auth.js"
+import { registerSchema } from '../../schemas/auth/registerSchema.js'
+import { register } from '../../service/auth.js'
+import { responseStatus } from '../../utils/response.js'
 
 /**
  * @swagger
@@ -70,16 +71,16 @@ import { register } from "../../service/auth.js"
  * @param {import("express").NextFunction} next
  */
 export default async function registeringNewUser(req, res, next) {
- try {
-  const data = registerSchema.parse(req.body)
+  try {
+    const data = registerSchema.parse(req.body)
 
-  await register(data)
+    await register(data)
 
-  return res.json({
-   status: "OK",
-   data: [],
-  })
- } catch (error) {
-  next(error)
- }
+    return res.json({
+      status: responseStatus.OK,
+      data: [],
+    })
+  } catch (error) {
+    next(error)
+  }
 }

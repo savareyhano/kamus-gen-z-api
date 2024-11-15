@@ -1,4 +1,5 @@
-import { findAllKamusData, findAllKamusDataBy } from "../../service/kamus.js"
+import { findAllKamusData, findAllKamusDataBy } from '../../service/kamus.js'
+import { responseStatus } from '../../utils/response.js'
 
 /**
  * @swagger
@@ -54,22 +55,22 @@ import { findAllKamusData, findAllKamusDataBy } from "../../service/kamus.js"
  * @returns
  */
 export default async function getAllKamusData(req, res, next) {
- try {
-  const query = req.query.q
-  let kamusData
+  try {
+    const query = req.query.q
+    let kamusData
 
-  if (query) {
-   kamusData = await findAllKamusDataBy(query)
-  } else {
-   kamusData = await findAllKamusData()
+    if (query) {
+      kamusData = await findAllKamusDataBy(query)
+    } else {
+      kamusData = await findAllKamusData()
+    }
+
+    return res.json({
+      status: responseStatus.OK,
+      data: kamusData,
+      message: 'Data kamus berhasil diambil',
+    })
+  } catch (error) {
+    next(error)
   }
-
-  return res.json({
-   status: "OK",
-   data: kamusData,
-   message: "Data kamus berhasil diambil",
-  })
- } catch (error) {
-  next(error)
- }
 }

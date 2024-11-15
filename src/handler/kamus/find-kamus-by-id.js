@@ -1,5 +1,6 @@
-import { findKamusById } from "../../service/kamus.js"
-import { Prisma } from "@prisma/client"
+import { findKamusById } from '../../service/kamus.js'
+import { Prisma } from '@prisma/client'
+import { responseStatus } from '../../utils/response.js'
 
 /**
  * @swagger
@@ -69,29 +70,29 @@ import { Prisma } from "@prisma/client"
  * @returns
  */
 export default async function findKamusId(req, res, next) {
- try {
-  const { id } = req.params
-  const kamusData = await findKamusById(id)
+  try {
+    const { id } = req.params
+    const kamusData = await findKamusById(id)
 
-  if (!kamusData) {
-   return res.status(404).json({
-    status: "ERROR",
-    message: "Data kamus tidak ditemukan",
-   })
-  }
+    if (!kamusData) {
+      return res.status(404).json({
+        status: responseStatus.NOT_FOUND,
+        message: 'Data kamus tidak ditemukan',
+      })
+    }
 
-  return res.json({
-   status: "OK",
-   data: kamusData,
-   message: "Data kamus berhasil diambil",
-  })
- } catch (err) {
-  if (err instanceof Prisma.PrismaClientValidationError) {
-   return res.status(403).json({
-    status: "ERROR",
-    message: "ID harus berupa Integer atau Number",
-   })
+    return res.json({
+      status: responseStatus.OK,
+      data: kamusData,
+      message: 'Data kamus berhasil diambil',
+    })
+  } catch (err) {
+    if (err instanceof Prisma.PrismaClientValidationError) {
+      return res.status(403).json({
+        status: responseStatus.ERROR,
+        message: 'ID harus berupa Integer atau Number',
+      })
+    }
+    next(err)
   }
-  next(err)
- }
 }
