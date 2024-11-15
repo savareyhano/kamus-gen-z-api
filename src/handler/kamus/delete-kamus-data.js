@@ -1,6 +1,7 @@
 import { deleteKamusOnDB } from '../../service/kamus.js'
 import { responseStatus } from '../../utils/response.js'
 
+
 /**
  * @swagger
  * /api/v1/kamus/{id}:
@@ -53,14 +54,13 @@ import { responseStatus } from '../../utils/response.js'
  * @param {import("express").NextFunction} next
  */
 export default async function deleteKamus(req, res, next) {
-  try {
-    const { id } = req.params
+ try {
+  const { id } = req.params
 
-    // Delete Kamus entry
-    await deleteKamusOnDB(id)
-
+  // Delete Kamus entry
+  await deleteKamusOnDB(id)
     // Respond with success message
-    return res.status(200).json({
+  return res.status(200).json({
       status: responseStatus.DELETED,
       message: 'Kamus berhasil dihapus',
     })
@@ -68,4 +68,5 @@ export default async function deleteKamus(req, res, next) {
     // Handle errors
     next(error)
   }
+
 }

@@ -55,10 +55,10 @@ import { responseStatus } from '../../utils/response.js'
  * @returns
  */
 export default async function getAllKamusData(req, res, next) {
-  try {
-    const query = req.query.q
-    let kamusData
-
+ try {
+  const query = req.query.q
+  let kamusData
+  
     if (query) {
       kamusData = await findAllKamusDataBy(query)
     } else {
@@ -73,4 +73,13 @@ export default async function getAllKamusData(req, res, next) {
   } catch (error) {
     next(error)
   }
+
+  return res.json({
+   status: "OK",
+   data: kamusData,
+   message: "Data kamus berhasil diambil",
+  })
+ } catch (error) {
+  next(error)
+ }
 }

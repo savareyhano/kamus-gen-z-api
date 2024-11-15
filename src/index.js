@@ -1,3 +1,4 @@
+
 import express from 'express'
 import { kamusRoute } from './routes/kamus.js'
 import { cors } from './middleware/cors.js'
@@ -12,6 +13,7 @@ app.use(express.json())
 app.use(cors)
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+
 /**
  * TODO :
  * Untuk saat ini hanya endpoint berikut yang perlu dibuat
@@ -21,14 +23,15 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
  *
  */
 
-app.use('/api/v1/kamus', kamusRoute)
+app.use("/api/v1/kamus", kamusRoute)
 
 /**
  * Buatin error handlingnya rek
  * middlewarenya buat di ./middleware
  * o iya sekalian buatin handling 404
  */
+
 app.use('*', pathNotFound)
 app.use(serverError)
 
-app.listen(PORT, '0.0.0.0', () => console.log(`Listening ${PORT}`))
+app.listen(PORT, "0.0.0.0", () => console.log(`Listening ${PORT}`))

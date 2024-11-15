@@ -8,13 +8,13 @@ import findKamusId from '../handler/kamus/find-kamus-by-id.js'
 export const kamusRoute = Router()
 
 // Route to get all Kamus data
-kamusRoute.get('/', getAllKamusData)
+kamusRoute.get("/", getAllKamusData)
 
 // Route to create a new Kamus entry
-kamusRoute.post('/', createKamus)
+kamusRoute.post("/", createKamus)
 
 // Route to update an existing Kamus entry
-kamusRoute.put('/:id', updateKamus)
+kamusRoute.put("/:id", updateKamus)
 
 // Route to delete an existing Kamus entry
 kamusRoute.delete('/:id', deleteKamus)

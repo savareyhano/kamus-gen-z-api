@@ -97,10 +97,9 @@ import { responseStatus } from '../../utils/response.js'
  * @param {import("express").NextFunction} next
  */
 export default async function updateKamus(req, res, next) {
-  try {
-    const { id } = req.params
-    const { word, wordDescription } = req.body
-
+ try {
+  const { id } = req.params
+  const { word, wordDescription } = req.body
     // Validate request body
     if (!word || !wordDescription) {
       return res.status(400).json({
@@ -110,9 +109,9 @@ export default async function updateKamus(req, res, next) {
       })
     }
 
-    // Update Kamus entry
-    const updatedKamus = await updateKamusOnDB(id, { word, wordDescription })
 
+  // Update Kamus entry
+  const updatedKamus = await updateKamusOnDB(id, { word, wordDescription })
     // Respond with updated Kamus entry
     return res.status(200).json({
       status: responseStatus.OK,
