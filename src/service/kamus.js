@@ -25,15 +25,22 @@ export async function createKamusOnDB(data) {
 
 // Update an existing Kamus entry in the database
 export async function updateKamusOnDB(id, data) {
-    return await client.words.update({
-        where: { id: parseInt(id, 10) },
-        data: data,
-    })
+  return await client.words.update({
+    where: { id: parseInt(id, 10) },
+    data: data,
+  })
 }
 
 // Delete a Kamus entry from the database
 export async function deleteKamusOnDB(id) {
-    return await client.words.delete({
-        where: { id: parseInt(id, 10) },
-    })
+  return await client.words.delete({
+    where: { id: parseInt(id, 10) },
+  })
+}
+
+// Find a Kamus by Id
+export async function findKamusById(id) {
+  return await client.words.findUnique({
+    where: { id: parseInt(id, 10) },
+  })
 }

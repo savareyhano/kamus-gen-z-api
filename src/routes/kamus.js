@@ -3,6 +3,7 @@ import getAllKamusData from '../handler/kamus/get-all-kamus-data.js'
 import createKamus from '../handler/kamus/create-kamus-data.js'
 import updateKamus from '../handler/kamus/update-kamus-data.js'
 import deleteKamus from '../handler/kamus/delete-kamus-data.js'
+import findKamusId from '../handler/kamus/find-kamus-by-id.js'
 
 export const kamusRoute = Router()
 
@@ -17,3 +18,6 @@ kamusRoute.put('/:id', updateKamus)
 
 // Route to delete an existing Kamus entry
 kamusRoute.delete('/:id', deleteKamus)
+
+// Route to get Kamus data by id
+kamusRoute.get('/:id', findKamusId)
