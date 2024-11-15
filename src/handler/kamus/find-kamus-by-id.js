@@ -2,7 +2,6 @@ import { findKamusById } from '../../service/kamus.js'
 import { Prisma } from '@prisma/client'
 import { responseStatus } from '../../utils/response.js'
 
-
 /**
  * @swagger
  * /api/v1/kamus/{id}:

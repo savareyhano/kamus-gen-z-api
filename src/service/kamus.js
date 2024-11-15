@@ -1,26 +1,26 @@
-import { client } from "../database.js"
+import { client } from '../database.js'
 
 // Fetch all Kamus data
 export async function findAllKamusData() {
- return await client.words.findMany()
+  return await client.words.findMany()
 }
 
 // Fetch Kamus data by query
 export async function findAllKamusDataBy(query) {
- return await client.words.findMany({
-  where: {
-   word: {
-    contains: query,
-   },
-  },
- })
+  return await client.words.findMany({
+    where: {
+      word: {
+        contains: query,
+      },
+    },
+  })
 }
 
 // Create a new Kamus entry in the database
 export async function createKamusOnDB(data) {
- return await client.words.create({
-  data: data,
- })
+  return await client.words.create({
+    data: data,
+  })
 }
 
 // Update an existing Kamus entry in the database

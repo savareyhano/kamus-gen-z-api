@@ -1,7 +1,6 @@
 import { createKamusOnDB } from '../../service/kamus.js'
 import { responseStatus } from '../../utils/response.js'
 
-
 /**
  * @swagger
  * /api/v1/kamus:
@@ -82,14 +81,13 @@ import { responseStatus } from '../../utils/response.js'
  * @param {import("express").NextFunction} next
  */
 export default async function createKamus(req, res, next) {
- try {
-  /**
-   * @typedef CreateKamus
-   * @type {object}
-   * @property {string} word
-   * @property {string} wordDescription
-   */
-
+  try {
+    /**
+     * @typedef CreateKamus
+     * @type {object}
+     * @property {string} word
+     * @property {string} wordDescription
+     */
 
     /** @type {CreateKamus} */
     const { word, wordDescription } = req.body
@@ -101,11 +99,11 @@ export default async function createKamus(req, res, next) {
         message: 'word atau description tidak boleh kosong',
       })
     }
-   
-  const kamus = await createKamusOnDB({
-   word,
-   wordDescription,
-  })
+
+    const kamus = await createKamusOnDB({
+      word,
+      wordDescription,
+    })
 
     return res.status(201).json({
       status: responseStatus.CREATED,
@@ -115,5 +113,4 @@ export default async function createKamus(req, res, next) {
   } catch (error) {
     next(error)
   }
-
 }
