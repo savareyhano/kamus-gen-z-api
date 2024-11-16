@@ -35,32 +35,6 @@ Untuk non member organization IMPHNEN
 3. Commit dan push
 4. Buat pull request
 
-## Getting Started
-Bebas mau pake npm, yarn, pnpm (tutor pake yarn)
-
-```bash
-# install package, dll.
-yarn install
-
-# windows
-copy .env.example .env
-# linux/mac
-cp .env.example .env
-
-# migrasi database
-npx prisma migrate dev --name init
-# saran : kalian bisa menginstall ekstensi SQLite Viewer
-
-# jalankan
-yarn dev
-```
-
-buka API Documentation
-[http://localhost:3000/api-docs](http://localhost:3000/api-docs)
-
-jika sudah bisa selanjutnya kalian bisa melakukan perubahan pada kode lalu mengikuti tutorial untuk member / non member
-
-
 ## Kontributor
 
 Mereka yang dibawah ini telah menjadi kontributor di repositori ini. Ayo selanjutnya giliran kamu.
