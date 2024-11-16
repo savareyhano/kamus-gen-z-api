@@ -1,5 +1,5 @@
 import { Prisma } from '@prisma/client'
-import { responseStatus } from '../utils/response'
+import { responseStatus } from '../utils/response.js'
 
 export const pathNotFound = (req, res) => {
   res.status(404).json({
