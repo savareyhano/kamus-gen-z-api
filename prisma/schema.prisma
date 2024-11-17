@@ -24,6 +24,16 @@ model Words {
   @@map("dictionaries")
 }
 
+// Model for word gateaway
+model WordsGateaway {
+  id              Int     @id @default(autoincrement())
+  word            String  @unique
+  wordDescription String  @map("word_description")
+  action          Int     // 1 = Suspend, 2 = Accepted, 3 = Rejected
+
+  @@map("words_gateaway")
+}
+
 // Model for storing user information
 model User {
   id       Int    @id @default(autoincrement())

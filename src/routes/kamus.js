@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import getAllKamusData from '../handler/kamus/get-all-kamus-data.js'
 import createKamus from '../handler/kamus/create-kamus-data.js'
+import createGateaway from '../handler/kamus/create-wordsgateaway.js'
 import updateKamus from '../handler/kamus/update-kamus-data.js'
 import deleteKamus from '../handler/kamus/delete-kamus-data.js'
 import findKamusId from '../handler/kamus/find-kamus-by-id.js'
@@ -21,3 +22,6 @@ kamusRoute.delete('/:id', deleteKamus)
 
 // Route to get Kamus data by id
 kamusRoute.get('/:id', findKamusId)
+
+// Route to create a new Kamus on Words Gateaway
+kamusRoute.post('/gate', createGateaway)
