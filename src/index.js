@@ -1,5 +1,6 @@
 import express from 'express'
 import { kamusRoute } from './routes/kamus.js'
+import { adminRoute } from './routes/admin.js'
 import { cors } from './middleware/cors.js'
 import swaggerUi from 'swagger-ui-express'
 import swaggerSpec from './docs/swagger.js'
@@ -23,6 +24,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
  */
 
 app.use('/api/v1/kamus', kamusRoute)
+app.use('/api/v1/admin', adminRoute)
 
 /**
  * Buatin error handlingnya rek
